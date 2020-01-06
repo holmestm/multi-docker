@@ -18,6 +18,7 @@ const pgClient = new Pool({
   password: keys.pgPassword,
   port: keys.pgPort
 });
+console.log('Config', keys);
 pgClient.on('error', () => console.log('Lost PG connection'));
 
 pgClient
@@ -66,5 +67,5 @@ app.post('/values', async (req, res) => {
 });
 
 app.listen(5000, err => {
-  console.log('Listening');
+  console.log('Server Listening on port 5000');
 });
