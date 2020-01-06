@@ -26,7 +26,7 @@
             "name": "nginx",
             "image": "holmestm/multi-nginx",
             "essential": true,
-            "portmappings": [
+            "portMappings": [
                 {
                     "hostPort": 80,
                     "containerPort": 80
