@@ -1,0 +1,36 @@
+{
+    "AWSEBDockerRunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "holmestm/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "holmestm/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "holmestm/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },        
+        {
+            "name": "nginx",
+            "image": "holmestm/multi-nginx",
+            "essential": true,
+            "portmappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client","server"]
+        }
+    ]
+    
+}
