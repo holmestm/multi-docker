@@ -5,8 +5,8 @@
             "name": "client",
             "image": "holmestm/multi-client",
             "hostname": "client",
-            "essential": false,
-            "memory": 128
+            "essential": true,
+            "memory": 256
         },
         {
             "name": "server",
@@ -20,7 +20,7 @@
             "image": "holmestm/multi-worker",
             "hostname": "worker",
             "essential": false,
-            "memory": 128
+            "memory": 256
         },        
         {
             "name": "nginx",
