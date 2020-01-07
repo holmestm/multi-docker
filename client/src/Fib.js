@@ -15,16 +15,20 @@ class Fib extends Component {
 
   async fetchValues() {
     const values = await axios.get('/api/values/current');
-    if (values.status!=200) return;
+    console.log('fetchValues', values);
+
+    this.setState({ values: {} });
+    if ((values.status!==200) || (values && values.data && values.data.startsWith && values.data.startsWith('<!doctype'))) return;
 
     this.setState({ values: values.data });
   }
 
   async fetchIndexes() {
-    const seenIndexes = await axios.get('/api/values/all');
-    if (seenIndexes.status!=200) return;
+    const values = await axios.get('/api/values/all');
+    this.setState({seenIndexes: []});
+    if ((values.status!==200) || (values && values.data && values.data.startsWith && values.data.startsWith('<!doctype'))) return;
 
-    this.setState({seenIndexes: seenIndexes.data});
+    this.setState({ seenIndexes: values.data });
   }
 
   handleSubmit = async event => {
